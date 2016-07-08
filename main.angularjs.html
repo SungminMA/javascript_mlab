@@ -27,28 +27,13 @@
             <div class="col-md-6">
                 <form class="form-horizontal">
                     <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" >mlab.com key: </label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" id="apiKey" placeholder="apiKey" ng-model="apiKey">
-                        </div>
-                        <div class="col-md-2">
-                            <input type="button" value="set" id="set" ng-click="setApikey()" class="btn btn-primary btn-md">
-                        </div>
-                    </div>
-                </form>                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <form class="form-horizontal">
-                    <div class="form-group form-group-md">
                         <label class="col-md-2 control-label">search keyword: </label>
                         <div class="col-md-6">
                             <input type="text" class="form-control" id="searchKeyword" placeholder="search keyword..." ng-model="searchKeyword"
                                    ng-keyup="$event.keyCode == 13 ? searchMemo() : null",>                            
                         </div>                
                         <div class="col-md-2">
-                            <input type="button" value="Search" id="Search" ng-click="searchMemo()" class="btn btn-primary btn-md">
+                            <input style="width:100%" type="button" value="Search" id="Search" ng-click="searchMemo()" class="btn btn-primary btn-md">
                         </div>
                     </div>                    
                 </form>                

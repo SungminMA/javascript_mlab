@@ -7,15 +7,16 @@ obj_NgApp.controller('ctr_keep', function ($scope, $http, $document, $window) {
             
     $document.ready(function () {
         mlabMongoDbHelper = new MlabMongoDbHelper($scope.apiKey, $http);
+        mlabMongoDbHelper.setApikey("_cAwbzebv6Z4yRuxHtJGzRs36HMKc5QS");
     });
     
     $scope.setApikey = function() {
-        mlabMongoDbHelper.setApikey($scope.apiKey);
+        mlabMongoDbHelper.setApikey("_cAwbzebv6Z4yRuxHtJGzRs36HMKc5QS");
     }
 
     $scope.searchMemo = function() {
         var queryObj = {};
-        queryObj.db = "azure";
+        queryObj.db = "0708projectdb";
         queryObj.col = "memo";
         queryObj.sortCriteria = '{"reg_date": -1}';
         queryObj.queryCriteria = '{"title": {"$regex": "' + ($scope.searchKeyword || '') + '"}}';
@@ -36,7 +37,7 @@ obj_NgApp.controller('ctr_keep', function ($scope, $http, $document, $window) {
 
     $scope.addMemo = function() {
         var queryObj = {};
-        queryObj.db = "azure";
+        queryObj.db = "0708projectdb";
         queryObj.col = "memo";
         queryObj.insertObj = {"title": $scope.selectedTitle, "contents": $scope.selectedContents, "reg_date": {"$date": new Date().toISOString()}};
         mlabMongoDbHelper.addDocument(queryObj, function() {
@@ -47,7 +48,7 @@ obj_NgApp.controller('ctr_keep', function ($scope, $http, $document, $window) {
 
     $scope.updateMemo = function() {
         var queryObj = {};
-        queryObj.db = "azure";
+        queryObj.db = "0708projectdb";
         queryObj.col = "memo";
         queryObj._id = $scope.selectedId;
         queryObj.updateObj = {"title": $scope.selectedTitle, "contents": $scope.selectedContents, "reg_date": {"$date": new Date().toISOString()}};
@@ -59,7 +60,7 @@ obj_NgApp.controller('ctr_keep', function ($scope, $http, $document, $window) {
 
     $scope.deleteMemo = function() {
         var queryObj = {};
-        queryObj.db = "azure";
+        queryObj.db = "0708projectdb";
         queryObj.col = "memo";
         queryObj._id = $scope.selectedId;
         mlabMongoDbHelper.deleteDocument(queryObj, function() {
